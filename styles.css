@@ -1,0 +1,66 @@
+:root{
+  /* dark theme (default) */
+  --bg: #0f1720;
+  --bg2: #07101a;
+  --card: #0b1220;
+  --muted: #9aa6b2;
+  --accent: #60a5fa;
+  --glass: rgba(255,255,255,0.03);
+  --text: #e6eef6;
+}
+
+/* light theme overrides */
+:root[data-theme="light"]{
+  --bg: #f8fafc;
+  --bg2: #eef2f7;
+  --card: #ffffff;
+  --muted: #475569;
+  --accent: #2563eb;
+  --glass: rgba(0,0,0,0.04);
+  --text: #0f1720;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter,system-ui,Segoe UI,Roboto,Arial,Helvetica,sans-serif;
+  background:linear-gradient(180deg,var(--bg),var(--bg2));
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+}
+.top{
+  display:flex;
+  align-items:center;
+  gap:1rem;
+  padding:1rem 1.25rem;
+  border-bottom:1px solid rgba(255,255,255,0.03);
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+}
+.top h1{margin:0;font-size:1.1rem}
+
+.tools{margin-left:auto;display:flex;gap:.5rem;align-items:center}
+input#search{padding:.5rem .75rem;border-radius:8px;border:1px solid rgba(0,0,0,0.06);background:var(--glass);color:inherit}
+button{padding:.5rem .75rem;border-radius:8px;border:1px solid rgba(0,0,0,0.06);background:transparent;color:inherit;cursor:pointer}
+
+.theme-toggle{font-size:1rem}
+.theme-toggle[aria-pressed="true"]{opacity:0.9}
+.theme-toggle{transition:transform .12s ease}
+.theme-toggle:active{transform:scale(.96)}
+
+.count{padding:1rem 1.25rem;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:1rem;padding:1rem}
+.card{
+  background:linear-gradient(180deg, rgba(0,0,0,0.03), rgba(0,0,0,0.01));
+  border-radius:10px;padding:12px;display:flex;flex-direction:column;gap:.5rem;align-items:center;min-height:120px;border:1px solid rgba(0,0,0,0.06)
+}
+.preview{width:56px;height:56px;display:flex;align-items:center;justify-content:center}
+.preview img, .preview svg{width:100%;height:100%;display:block}
+.meta{font-size:.85rem;color:var(--muted);text-align:center;word-break:break-all}
+.actions{display:flex;gap:.4rem;margin-top:.25rem}
+.actions button{font-size:.8rem;padding:.35rem .5rem;border-radius:8px}
+
+.foot{padding:1rem;color:var(--muted);font-size:.9rem;text-align:center;border-top:1px solid rgba(255,255,255,0.02)}
+
+@media (max-width:420px){
+  .grid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}
+}
